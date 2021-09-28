@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.qot.assignment.data.models.entity.User" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent">
+
+            <RelativeLayout
+                android:id="@+id/layout_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/btn_back"
+                    android:layout_alignBottom="@+id/btn_back"
+                    android:layout_marginTop="-16dp"
+                    android:background="@drawable/white_rounded"
+                    android:elevation="0dp" />
+
+
+                <ImageView
+                    android:id="@+id/btn_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/card_avatar"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/image_bg"
+                    android:elevation="1dp"
+                    android:padding="16dp"
+                    android:src="@drawable/ic_close" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_avatar"
+                    android:layout_width="@dimen/user_avatar_thumb_size"
+                    android:layout_height="@dimen/user_avatar_thumb_size"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:background="@color/white"
+                    app:cardCornerRadius="@dimen/margin16"
+                    app:cardElevation="@dimen/margin8">
+
+                    <ImageView
+                        android:id="@+id/imageView_avatar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:imageUrl="@{user.picture}" />
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/card_avatar"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:padding="@dimen/margin16">
+
+
+                    <TextView
+                        style="@style/TextAppearance.MaterialComponents.Subtitle2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="@{user.fullName()}"
+                        android:textColor="@color/text_primary"
+                        android:textSize="21sp"
+                        android:textStyle="bold"
+                        tools:text="Miss Monika Singh" />
+
+
+                    <TextView
+                        style="@style/TextAppearance.MaterialComponents.Body2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="@dimen/margin16"
+                        android:gravity="center"
+                        android:text="@{user.email}"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="16sp"
+                        app:showIfNonNull="@{user.email}"
+                        tools:text="test@gmail.com" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/margin8"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:showIfNonNull="@{user.phone}">
+
+                        <ImageView
+                            android:layout_width="@dimen/label_icon_size"
+                            android:layout_height="@dimen/label_icon_size"
+                            android:src="@drawable/ic_phone" />
+
+                        <TextView
+                            style="@style/TextPrimary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin16"
+                            android:text="@{user.phone}"
+                            android:gravity="bottom"
+                            android:layout_gravity="bottom"
+                            tools:text="24343453" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/margin8"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:showIfNonNull="@{user.doB}">
+
+                        <ImageView
+                            android:layout_width="@dimen/label_icon_size"
+                            android:layout_height="@dimen/label_icon_size"
+                            android:src="@drawable/ic_birthday" />
+
+                        <TextView
+                            style="@style/TextPrimary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin16"
+                            android:gravity="bottom"
+                            android:layout_gravity="bottom"
+                            android:text="@{user.doB}"
+                            tools:text="24-Jan-1900" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/margin8"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:showIfNonNull="@{user.gender}">
+
+                        <ImageView
+                            android:layout_width="@dimen/label_icon_size"
+                            android:layout_height="@dimen/label_icon_size"
+                            android:src="@drawable/ic_gender" />
+
+                        <TextView
+                            style="@style/TextPrimary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin16"
+                            android:text="@{user.gender}"
+                            android:gravity="bottom"
+                            android:layout_gravity="bottom"
+                            tools:text="Male" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/margin8"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:showIfNonNull="@{user.fullAddress()}">
+
+                        <ImageView
+                            android:layout_width="@dimen/label_icon_size"
+                            android:layout_height="@dimen/label_icon_size"
+                            android:layout_gravity="top"
+                            android:src="@drawable/ic_address" />
+
+                        <TextView
+                            style="@style/TextPrimary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin16"
+                            android:text="@{user.fullAddress()}"
+                            tools:text="Bijnor" />
+                    </LinearLayout>
+
+
+                    <TextView
+                        style="@style/TextAppearance.MaterialComponents.Body2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/margin16"
+                        android:gravity="center"
+                        android:text="@string/member_since"
+                        android:textColor="@color/text_subcontent"
+                        android:textSize="12sp"
+                        app:showIfNonNull="@{user.email}" />
+
+                    <TextView
+                        style="@style/TextAppearance.MaterialComponents.Body2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="@{user.memberSince}"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="14sp"
+                        app:showIfNonNull="@{user.memberSince}"
+                        tools:text="14jul" />
+                </LinearLayout>
+
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </ScrollView>
+</layout>

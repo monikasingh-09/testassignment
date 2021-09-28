@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Monika Assignment</string>
+    <string name="title">Title</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="gender">Gender</string>
+    <string name="dob">Date of birth</string>
+    <string name="phone">Phone</string>
+    <string name="email">Email</string>
+    <string name="member_since">Member since</string>
+    <string name="nothing_to_see_here">Nothing to see here</string>
+</resources>
